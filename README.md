@@ -36,7 +36,7 @@ Then open it with your editor of choice:
 	# vim 10-uom-wifi.sh
 ```
 
-Change the path in ACTIVATION_SCRIPT to point to the main.py in your filesystem.
+Change the path in `$ACTIVATION_SCRIPT` to point to the main.py in your filesystem.
 Once you're done, save and exit. Then
 
 ```
