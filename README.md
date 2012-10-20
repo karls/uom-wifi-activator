@@ -3,6 +3,15 @@
 Tire of manually putting in your username and password every time you want to
 connect to the university wifi? Well, this script will ease the pain a bit.
 
+## Requirements
+
+* Python2
+* NetworkManager
+
+I've only tested it with Python 2.7.3 on Arch Linux, but it probably works with
+lower versions as well. If it doesn't, feel free to file a ticket or patch it
+and submit a pull request.
+
 ## Install
 
 Clone this repository to somewhere in your filesystem. In my example, it lives in
@@ -19,7 +28,7 @@ Have a look around. `main.py` is what does most of the work.
 You should change the values in that file and rename it to `credentials.py`.
 In `scripts/` you'll see a file called `10-uom-wifi.sh`. This is the script that
 gets called by NetworkManager after it has connected to an access point. In that
-file, you'll need to change `$ACTIVATION\_SCRIPT` variable to point to `main.py`
+file, you'll need to change `$ACTIVATION_SCRIPT` variable to point to `main.py`
 in the project root. But first, you'll need to copy it to
 `/etc/NetworkManager/dispatcher.d/`.
 
