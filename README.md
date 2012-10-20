@@ -44,7 +44,6 @@ in the project root. But first, you'll need to copy it to
 `/etc/NetworkManager/dispatcher.d/`.
 
 ```
-	$ cd path/to/uom-wifi-activator/
 	$ sudo su
 	# cp scripts/10-uom-wifi.sh /etc/NetworkManager/dispatcher.d/
 ```
@@ -65,3 +64,9 @@ Once you're done, save and exit. Then
 ```
 
 This is needed by NetworkManager (see `man 8 NetworkManager`).
+
+### Note
+
+This is quickly hacked together, so if it doesn't work, please let me know and
+I'll see what I can do. Ofcourse, you're welcome to patch it and send me a pull
+request.
