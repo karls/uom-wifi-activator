@@ -7,10 +7,14 @@ connect to the university wifi? Well, this script will ease the pain a bit.
 
 * Python 2.7.3
 * NetworkManager 0.9.6.0
+* Logbook 0.4
 
 I've only tested it with Python 2.7.3 on Arch Linux, but it probably works with
 lower versions as well. Same goes for NetworkManager.
 If it doesn't, feel free to file a ticket or patch it and submit a pull request.
+
+Logbook can be installed with a simple `pip2 install Logbook`. For more info, see
+[Github](https://github.com/mitsuhiko/logbook).
 
 ## Install
 
@@ -39,8 +43,8 @@ Update the values to match your username and password. Then
 
 In `scripts/` you'll see a file called `10-uom-wifi.sh`. This is the script that
 gets called by NetworkManager after it has connected to an access point. In that
-file, you'll need to change `$ACTIVATION_SCRIPT` variable to point to `main.py`
-in the project root. But first, you'll need to copy it to
+file, you'll need to change `$ACTIVATION_SCRIPT` variable to point to `activate.sh`
+in the `scripts/` directory. But first, you'll need to copy it to
 `/etc/NetworkManager/dispatcher.d/`.
 
 ```
@@ -55,7 +59,7 @@ Then open it with your editor of choice:
 	# vim 10-uom-wifi.sh
 ```
 
-Change the path in `$ACTIVATION_SCRIPT` to point to the main.py in your filesystem.
+Change the path in `$ACTIVATION_SCRIPT` to point to the activate.sh in your filesystem.
 Once you're done, save and exit. Then
 
 ```
