@@ -13,7 +13,7 @@ ACTIVATION_SCRIPT="/home/karl/dev/uom-wifi-activator/main.py"
 
 case $2 in
 	"up" )	if [ $CONNECTION_ID = $SSID ]; then
-			/bin/sh -e $ACTIVATION_SCRIPT
+			/usr/bin/env python2 $ACTIVATION_SCRIPT
 		fi
 		;;
 esac
