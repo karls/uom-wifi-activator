@@ -5,15 +5,15 @@
 
 SSID='UoM_WIFI'
 
-# You should change the ACTIVATION_SCRIPT variable to point to the Python file
-# that does the actual activation
+# You should change the ACTIVATION_SCRIPT variable to point to the activate.sh
+# script that does the actual activation
 
 # Change me
-ACTIVATION_SCRIPT="/home/karl/dev/uom-wifi-activator/main.py"
+ACTIVATION_SCRIPT="/home/karl/dev/uom-wifi-activator/scripts/activate.sh"
 
 case $2 in
 	"up" )	if [ $CONNECTION_ID = $SSID ]; then
-			/usr/bin/env python2 $ACTIVATION_SCRIPT
+			$ACTIVATION_SCRIPT
 		fi
 		;;
 esac
