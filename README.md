@@ -5,12 +5,12 @@ connect to the university wifi? Well, this script will ease the pain a bit.
 
 ## Requirements
 
-* Python2
-* NetworkManager
+* Python 2.7.3
+* NetworkManager 0.9.6.0
 
 I've only tested it with Python 2.7.3 on Arch Linux, but it probably works with
-lower versions as well. If it doesn't, feel free to file a ticket or patch it
-and submit a pull request.
+lower versions as well. Same goes for NetworkManager.
+If it doesn't, feel free to file a ticket or patch it and submit a pull request.
 
 ## Install
 
