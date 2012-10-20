@@ -25,7 +25,6 @@ url = urlparse(page.url)
 
 # if we're  on *.google.* domain, it's all good and we carry on browsin'
 if 'google' in url.netloc:
-    print 'All good'
     sys.exit(0)
 
 # otherwise, let's build the URL to POST things to and add other necessary
@@ -44,6 +43,5 @@ request.add_header('User-Agent', 'Mozilla/5.0 (X11; Linux i686)'+
 
 # this call to urlopen POSTs the urlencoded FORM_DATA, along with the specified
 # headers to POST_URL
+# TODO: add some sensible error checking and fallbacks
 auth_page = urlopen(request)
-
-print auth_page.get_code()
