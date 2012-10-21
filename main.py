@@ -53,10 +53,10 @@ def main():
     # otherwise, let's build the URL to POST things to and add other necessary
     # information
     logger.info('Looks like %s is not authenticated.' % USERNAME)
-    logger.info(Build the authentication URL.')
+    logger.info('Build the authentication URL.')
     POST_URL = urlunparse((url.scheme, url.netloc, FORM_ACTION, '', '', ''))
 
-    logger.debug('Building the request object.')
+    logger.info('Building the request object.')
     request = Request(POST_URL, urlencode(FORM_DATA))
     request.add_header('Accept',
                        'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8')
