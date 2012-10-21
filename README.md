@@ -7,14 +7,18 @@ connect to the university wifi? Well, this script will ease the pain a bit.
 
 * Python 2.7.3
 * NetworkManager 0.9.6.0
-* Logbook 0.4
+* Logbook 0.4 (optional)
 
 I've only tested it with Python 2.7.3 on Arch Linux, but it probably works with
 lower versions as well. Same goes for NetworkManager.
 If it doesn't, feel free to file a ticket or patch it and submit a pull request.
 
-Logbook can be installed with a simple `pip2 install Logbook`. For more info, see
-[Github](https://github.com/mitsuhiko/logbook).
+Logbook can be installed with a simple `pip2 install Logbook`. Logbook is optional
+and is only really needed for debugging. If you decide to install Logbook, it will
+create a file named `USERNAME.log` in the project root that contains some
+information about what happens during authentication.
+
+For more info, see [Logbook's repo](https://github.com/mitsuhiko/logbook).
 
 ## Install
 
