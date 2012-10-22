@@ -14,9 +14,22 @@ try:
 except ImportError:
     pass
 
+_has_notifications = False
+try:
+    from gi.repository import Notify
+    Notify.init('uom-wifi-activator')
+    _has_notifications = True
+except ImportError:
+    pass
+
+
 from credentials import USERNAME, PASSWORD
 
 _logger = None
+
+def notify(msg):
+    if _has_notifications:
+        Notify.Notification.new('UoM_WIFI', msg, 'dialog-information').show()
 
 def setup_logger():
     """
@@ -24,6 +37,7 @@ def setup_logger():
     """
 
     global _logger
+    global _has_logbook
 
     if _has_logbook:
         _logger = Logger('UoM_WIFI')
@@ -32,10 +46,17 @@ def setup_logger():
         except IndexError:
             log_path = join(split(abspath(__file__))[0], '%s.log' % USERNAME)
 
-        # create the handler
-        log_handler = RotatingFileHandler(log_path)
-        # push the context object to the application stack
-        log_handler.push_application()
+        # because the log file is owned by root, if this program is ran by a
+        # regular user, we need to prevent it from crashing by writing to a file
+        # owned by root
+        try:
+            # create the handler
+            log_handler = RotatingFileHandler(log_path)
+
+            # push the context object to the application stack
+            log_handler.push_application()
+        except IOError:
+            _has_logbook = False
 
 
 def log(msg):
@@ -74,6 +95,7 @@ def main():
     # if we're  on *.google.* domain, it's all good and we carry on browsin'
     if 'google' in url.netloc:
         log('Looks like %s is authenticated, bye-bye.' % USERNAME)
+        notify('Looks like %s is authenticated, bye-bye.' % USERNAME)
         sys.exit(0)
 
     # otherwise, let's build the URL to POST things to and add other necessary
@@ -98,6 +120,7 @@ def main():
     # TODO: add some sensible verification, error checking and fallbacks
     log('Trying to authenticate.')
     auth_page = urlopen(request)
+    notify('%s is now authenticated' % USERNAME)
     sys.exit(0)
 
 if __name__ == '__main__':
