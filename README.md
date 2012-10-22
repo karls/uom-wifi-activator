@@ -8,6 +8,8 @@ connect to the university wifi? Well, this script will ease the pain a bit.
 * Python 2.7.3
 * NetworkManager 0.9.6.0
 * Logbook 0.4 (optional)
+* libnotify 0.7.5-1 (optional)
+* python2-gobject 3.2.2-2 (optional)
 
 I've only tested it with Python 2.7.3 on Arch Linux, but it probably works with
 lower versions as well. Same goes for NetworkManager.
@@ -19,6 +21,11 @@ create a file named `USERNAME.log` in the project root that contains some
 information about what happens during authentication.
 
 For more info, see [Logbook's repo](https://github.com/mitsuhiko/logbook).
+
+`libnotify` and `python2-gobject` are needed if you want to have notifications.
+
+**Note:** the version numbers are what are installed on my system. You might find
+that it works perfectly well with other (lower) versions of the same software.
 
 ## Install
 
