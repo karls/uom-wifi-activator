@@ -1,4 +1,5 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python2 -python vr 2 wifi hacking
+
 
 import sys
 from os.path import join, split, abspath
